@@ -23,7 +23,7 @@ print('height = ' + str(height) + " px\nwidth = " + str(width) + ' px')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 before = time.clock()
-faces = face_cascade.detectMultiScale(gray, 1.2, 5)
+faces = face_cascade.detectMultiScale(gray, 1.5, 5)
 for (x, y, w, h) in faces:
     # Display the face bounding box
     cv2.rectangle(img, (x, y), (x + w, y + h), (30, 30, 220), 2)
