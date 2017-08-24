@@ -12,5 +12,10 @@ file_path = "C:\\Users\\A84690\\Documents\\Dev\\Comp_Vis\\nerf-turret\\images\\u
 
 img = cv2.imread(file_path, 0)
 cv2.imshow('diagram', img)
-cv2.waitKey(0)
+k = cv2.waitKey(0) & 0xFF
+
+if k == ord('s'):
+    file_path_bw = file_path.replace('ugly_mug', 'ugly_mug_bw')
+    cv2.imwrite(file_path_bw, img)
+
 cv2.destroyAllWindows()
