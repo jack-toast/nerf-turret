@@ -25,15 +25,36 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 before = time.clock()
 faces = face_cascade.detectMultiScale(gray, 1.2, 5)
 for (x, y, w, h) in faces:
-    cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
+    # Display the face bounding box
+    cv2.rectangle(img, (x, y), (x + w, y + h), (30, 30, 220), 2)
     roi_gray = gray[y:y + h, x:x + w]
     roi_color = img[y:y + h, x:x + w]
     eyes = eye_cascade.detectMultiScale(roi_gray)
     for (ex, ey, ew, eh) in eyes:
-        cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
+        # Display the blue bounding eye box
+        cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (220, 30, 30),
+                      2)
+    # Display the center X lines
+    cv2.line(img, (x, y), (x + w, y + h), (30, 220, 30), 2)
+    cv2.line(img, (x, y + h), (x + w, y), (30, 220, 30), 2)
 
 elapsed_time_ms = 1000 * (time.clock() - before)
 print('comp time = ' + '%.3f' % elapsed_time_ms + ' ms')
-cv2.imshow('face', img)
-cv2.waitKey(5000)
-cv2.destroyAllWindows()
+
+for (x, y, w, h) in faces:
+    print('x = ' + str(x) + ', y = ' + str(y) + ', w = ' + str(w) + ', h = ' +
+          str(h))
+    # cv2.circle(img, (int(mid_x), int(mid_y)), 5, (30, 220, 30), -1)
+    print('face center: x = ' + str(int(x + w / 2)) + ', y = ' +
+          str(int(y + h / 2)))
+
+for (ex, ey, ew, eh) in eyes:
+    print('ex = ' + str(x + ex) + ', ey = ' + str(y + ey) + ', ew = ' + str(ew)
+          + ', eh = ' + str(eh))
+
+# cv2.imshow('face', img)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.show()
