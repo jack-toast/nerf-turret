@@ -38,8 +38,6 @@ while (True):
         # Display the center X lines
         cv2.line(frame, (x, y), (x + w, y + h), (30, 220, 30), 2)
         cv2.line(frame, (x, y + h), (x + w, y), (30, 220, 30), 2)
-        cv2.line(
-            frame, )
 
     cv2.imshow('frame', cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY))
 
