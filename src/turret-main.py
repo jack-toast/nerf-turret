@@ -22,6 +22,7 @@ print('width = ' + str(width) + ', height = ' + str(height))
 
 def add_visuals(frame):
     # Display the center X lines
+
     cv2.rectangle(frame, (x, y), (x + w, y + h), (30, 30, 220), 2)
     cv2.line(frame, (x, y), (x + w, y + h), (30, 220, 30), 2)
     cv2.line(frame, (x, y + h), (x + w, y), (30, 220, 30), 2)
@@ -53,6 +54,13 @@ while (True):
 
         # Add the boxes and lines on the frame.
         add_visuals(frame)
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        # TODO Put the x and y offsets here
+        xoffset = int(xmid - width / 2)
+        yoffset = int(height / 2 - ymid)
+        offsets = str(xoffset) + ', ' + str(yoffset)
+        cv2.putText(frame, offsets, (0, int(height * 0.06)), font, 1,
+                    (255, 255, 255), 2, cv2.LINE_AA)
 
     cv2.imshow('frame', cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY))
 
