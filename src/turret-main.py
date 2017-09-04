@@ -8,9 +8,8 @@ import time
 from matplotlib import pyplot as plt
 
 # Load classifier XMLs
-face_cascade = cv2.CascadeClassifier(
-    'classifiers\\haarcascade_frontalface_default.xml')
-eye_cascade = cv2.CascadeClassifier('classifiers\\haarcascade_eye.xml')
+face_cascade = cv2.CascadeClassifier('classifiers/haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier('classifiers/haarcascade_eye.xml')
 
 cap = cv2.VideoCapture(0)
 ret, frame = cap.read()
