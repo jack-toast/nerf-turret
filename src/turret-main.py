@@ -8,9 +8,8 @@ import time
 from matplotlib import pyplot as plt
 
 # Load classifier XMLs
-face_cascade = cv2.CascadeClassifier(
-    'C:/Users/Jonathan/Documents/Dev/nerf-turret/classifiers/haarcascade_frontalface_default.xml')
-eye_cascade = cv2.CascadeClassifier('C:Users/Jonathan/Documents/Dev/nerf-turret/classifiers/haarcascade_eye.xml')
+face_cascade = cv2.CascadeClassifier('C:\\Users\\Jonathan\\Documents\\Dev\\nerf-turret\\classifiers\\haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier('C:\\Users\\Jonathan\\Documents\\Dev\\nerf-turret\\classifiers\\haarcascade_eye.xml')
 
 cap = cv2.VideoCapture(0)
 ret, frame = cap.read()
@@ -60,7 +59,7 @@ while (True):
         yoffset = int(height / 2 - ymid)
         offsets = str(xoffset) + ', ' + str(yoffset)
         cv2.putText(frame, offsets, (0, int(height * 0.06)), font, 1,
-                    (255, 255, 255), 2, cv2.LINE_AA)
+                    (100,100,100), 2, cv2.LINE_AA)
 
     cv2.imshow('frame', cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY))
 
