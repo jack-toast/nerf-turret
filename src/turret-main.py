@@ -9,8 +9,8 @@ from matplotlib import pyplot as plt
 
 # Load classifier XMLs
 face_cascade = cv2.CascadeClassifier(
-    'classifiers\\haarcascade_frontalface_default.xml')
-eye_cascade = cv2.CascadeClassifier('classifiers\\haarcascade_eye.xml')
+    'C:/Users/Jonathan/Documents/Dev/nerf-turret/classifiers/haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier('C:Users/Jonathan/Documents/Dev/nerf-turret/classifiers/haarcascade_eye.xml')
 
 cap = cv2.VideoCapture(0)
 ret, frame = cap.read()
